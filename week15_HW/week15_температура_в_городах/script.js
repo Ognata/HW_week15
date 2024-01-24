@@ -1,6 +1,3 @@
-// const cities = ['Москва', 'Санкт-Петербург', 'Хабаровск', 'Казань']
-// const temp = newArray(4)
-
 // Шаг 2: Создаем массив городов
 const cities = ['Санкт-Петербург', 'Нью-Йорк', 'Пекин', 'Лондон'];
 
@@ -10,8 +7,22 @@ const temperatures = [];
 // Шаг 4: Получаем температуру для каждого города от пользователя
 for (let i = 0; i < cities.length; i++) {
     let temperatureInput = prompt(`Введите температуру в городе ${cities[i]}:`);
+
+// Проверяем, ввел ли пользователь число
+    if (temperatureInput === null || temperatureInput === '') {
+        alert('Введите корректное число.');
+        i--
+        continue;
+    }
+
+// Проверяем, является ли введенное значение числом
+    if (isNaN(temperatureInput)) {
+        alert('Введите корректное число.');
+        i--
+        continue;
+    }
     
-    // Шаг 5: Добавляем температуру в массив
+// Шаг 5: Добавляем температуру в массив
     temperatures.push(Number(temperatureInput));
 }
 
